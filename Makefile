@@ -16,7 +16,7 @@ GRUCODE ?= f3d_old
 # If COMPARE is 1, check the output sha1sum when building 'all'
 COMPARE ?= 1
 # If NON_MATCHING is 1, define the NON_MATCHING and AVOID_UB macros when building (recommended)
-NON_MATCHING ?= 0
+NON_MATCHING ?= 1
 # Build for the N64 (turn this off for ports)
 TARGET_N64 ?= 1
 
@@ -109,7 +109,7 @@ ifneq ($(MAKECMDGOALS),clean)
 ifneq ($(MAKECMDGOALS),distclean)
 
 # Make sure assets exist
-NOEXTRACT ?= 0
+NOEXTRACT ?= 1
 ifeq ($(NOEXTRACT),0)
 DUMMY != ./extract_assets.py $(VERSION) >&2 || echo FAIL
 ifeq ($(DUMMY),FAIL)
@@ -143,7 +143,7 @@ ACTOR_DIR := actors
 LEVEL_DIRS := $(patsubst levels/%,%,$(dir $(wildcard levels/*/header.h)))
 
 # Directories containing source files
-SRC_DIRS := src src/engine src/game src/audio src/menu src/buffers actors levels bin data assets
+SRC_DIRS := src src/engine src/game src/audio src/menu src/buffers src/mill actors levels bin data assets
 ASM_DIRS := asm lib
 BIN_DIRS := bin bin/$(VERSION)
 
@@ -162,7 +162,7 @@ else
 ifeq ($(VERSION),sh)
   OPT_FLAGS := -O2
 else
-  OPT_FLAGS := -g
+  OPT_FLAGS := -O2
 endif
 endif
 
@@ -172,6 +172,7 @@ include Makefile.split
 # Source code files
 LEVEL_C_FILES := $(wildcard levels/*/leveldata.c) $(wildcard levels/*/script.c) $(wildcard levels/*/geo.c)
 C_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.c)) $(LEVEL_C_FILES)
+CPP_FILES := $(foreach dir,$(SRC_DIRS),$(wildcard $(dir)/*.cpp)) 
 S_FILES := $(foreach dir,$(ASM_DIRS),$(wildcard $(dir)/*.s))
 ULTRA_C_FILES := $(foreach dir,$(ULTRA_SRC_DIRS),$(wildcard $(dir)/*.c))
 GODDARD_C_FILES := $(foreach dir,$(GODDARD_SRC_DIRS),$(wildcard $(dir)/*.c))
@@ -205,7 +206,8 @@ SOUND_OBJ_FILES := $(SOUND_BIN_DIR)/sound_data.ctl.o \
 # Object files
 O_FILES := $(foreach file,$(C_FILES),$(BUILD_DIR)/$(file:.c=.o)) \
            $(foreach file,$(S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
-           $(foreach file,$(GENERATED_C_FILES),$(file:.c=.o))
+           $(foreach file,$(GENERATED_C_FILES),$(file:.c=.o)) \
+           $(foreach file,$(CPP_FILES),$(BUILD_DIR)/$(file:.cpp=.o))
 
 ULTRA_O_FILES := $(foreach file,$(ULTRA_S_FILES),$(BUILD_DIR)/$(file:.s=.o)) \
                  $(foreach file,$(ULTRA_C_FILES),$(BUILD_DIR)/$(file:.c=.o))
@@ -542,6 +544,8 @@ $(BUILD_DIR)/%.o: %.c
 	@$(CC_CHECK) -MMD -MP -MT $@ -MF $(BUILD_DIR)/$*.d $<
 	$(CC) -c $(CFLAGS) -o $@ $<
 
+$(BUILD_DIR)/%.o: %.cpp
+	clang-9 -Wall -mtune=vr4300 -march=mips2 --target=mips-img-elf -fomit-frame-pointer -G0 -mno-check-zero-division -fno-exceptions -fno-builtin -fno-rtti -fno-common -mno-abicalls -mfpxx -c -O2 -nostdinc -I include/libc -DTARGET_N64 -I include -I build/us -I build/us/include -I src -I . -DVERSION_US -DNON_MATCHING -DAVOID_UB -DF3D_OLD -fno-exceptions -fno-builtin -fno-rtti -fno-common -o $@ $<
 
 $(BUILD_DIR)/%.o: $(BUILD_DIR)/%.c
 	@$(CC_CHECK) -MMD -MP -MT $@ -MF $(BUILD_DIR)/$*.d $<

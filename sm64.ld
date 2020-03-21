@@ -139,8 +139,8 @@ SECTIONS
       BUILD_DIR/src/game/macro_special_objects.o(.text);
       BUILD_DIR/src/game/hud.o(.text);
       BUILD_DIR/src/game/obj_behaviors.o(.text);
-      BUILD_DIR/src/game/obj_behaviors_2.o(.text);
-      BUILD_DIR/src/audio/synthesis.o(.text);
+      BUILD_DIR/src/game/obj_behaviors_2.o(.text);      
+	  BUILD_DIR/src/audio/synthesis.o(.text);
       BUILD_DIR/src/audio/heap.o(.text);
       BUILD_DIR/src/audio/load.o(.text);
       BUILD_DIR/src/audio/playback.o(.text);
@@ -372,6 +372,12 @@ SECTIONS
       BUILD_DIR/lib/rsp.o(.text);
 #endif
 
+      BUILD_DIR/src/mill/colors.o(.text*);
+      BUILD_DIR/src/mill/dynamic_letters.o(.text*);
+      BUILD_DIR/src/mill/gfx_table.o(.text*);
+      BUILD_DIR/src/mill/rainbow_colors.o(.text*);
+      BUILD_DIR/src/mill/string_fit.o(.text*);
+
       /* data */
       BUILD_DIR/src/game/crash_screen.o(.data*);
       BUILD_DIR/src/game/main.o(.data*);
@@ -468,8 +474,13 @@ SECTIONS
       BUILD_DIR/libultra.a:__osSyncPutChars.o(.data*);
       BUILD_DIR/libultra.a:guRotateF.o(.data*);
       BUILD_DIR/libultra.a:*.o(.data*);
-
 #endif
+
+      BUILD_DIR/src/mill/colors.o(.data*);
+      BUILD_DIR/src/mill/dynamic_letters.o(.data*);
+      BUILD_DIR/src/mill/gfx_table.o(.data*);
+      BUILD_DIR/src/mill/rainbow_colors.o(.data*);
+      BUILD_DIR/src/mill/string_fit.o(.data*);
 
 
       /* rodata */
@@ -564,6 +575,12 @@ SECTIONS
       BUILD_DIR/libultra.a:*.o(.rodata*);
 #endif
       BUILD_DIR/lib/rsp.o(.rodata*);
+	  
+      BUILD_DIR/src/mill/colors.o(.rodata*);
+      BUILD_DIR/src/mill/dynamic_letters.o(.rodata*);
+      BUILD_DIR/src/mill/gfx_table.o(.rodata*);
+      BUILD_DIR/src/mill/rainbow_colors.o(.rodata*);
+      BUILD_DIR/src/mill/string_fit.o(.rodata*);
    }
    END_SEG(main)
    BEGIN_NOLOAD(main)
@@ -654,6 +671,12 @@ SECTIONS
       BUILD_DIR/libultra.a:kdebugserver.o(.bss*);
       BUILD_DIR/libultra.a:*.o(.bss*);
 #endif
+
+      BUILD_DIR/src/mill/colors.o(.bss*);
+      BUILD_DIR/src/mill/dynamic_letters.o(.bss*);
+      BUILD_DIR/src/mill/gfx_table.o(.bss*);
+      BUILD_DIR/src/mill/rainbow_colors.o(.bss*);
+      BUILD_DIR/src/mill/string_fit.o(.bss*);
    }
    END_NOLOAD(main)
    _mainSegmentNoloadSizeLo = SIZEOF (.main.noload) & 0xffff;
@@ -768,6 +791,7 @@ SECTIONS
    STANDARD_OBJECTS(group15, 0x06000000, 0x0D000000)
    STANDARD_OBJECTS(group16, 0x06000000, 0x0D000000)
    STANDARD_OBJECTS(group17, 0x06000000, 0x0D000000)
+   STANDARD_OBJECTS(group_mill, 0x06000000, 0x0D000000)
 
    /* load the common actor groups */
    STANDARD_OBJECTS(common0, 0x08000000, 0x0F000000)

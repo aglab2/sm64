@@ -96,7 +96,7 @@
             "ifdef": ["VERSION_US", "VERSION_EU"],
             "release_rate": 208,
             "envelope": "envelope0",
-            "sound": "10"
+            "sound": "11"
         },
         "inst17": {
             "ifdef": ["VERSION_US", "VERSION_EU"],

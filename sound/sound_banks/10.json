@@ -47,9 +47,9 @@
     },
     "instruments": {
         "inst0": {
-            "release_rate": 10,
+            "release_rate": 208,
             "envelope": "envelope0",
-            "sound": "3E"
+            "sound": "audience-l"
         },
         "inst1": {
             "release_rate": 10,
@@ -58,8 +58,8 @@
         },
         "inst2": {
             "release_rate": 208,
-            "envelope": "envelope2",
-            "sound": "3F"
+            "envelope": "envelope0",
+            "sound": "lose-n00b"
         },
         "inst3": {
             "release_rate": 10,
@@ -67,14 +67,14 @@
             "sound": "40"
         },
         "inst4": {
-            "release_rate": 10,
-            "envelope": "envelope4",
-            "sound": "40"
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "lose-10"
         },
         "inst5": {
-            "release_rate": 10,
-            "envelope": "envelope5",
-            "sound": "40"
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "lose-15"
         },
         "percussion": [
             {"release_rate": 10, "pan": 62, "envelope": "envelope6", "sound": {"sample": "06", "tuning": 0.210224}},

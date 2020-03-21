@@ -26,6 +26,7 @@
 #include "actors/group15.h"
 #include "actors/group16.h"
 #include "actors/group17.h"
+#include "actors/group_mill.h"
 
 #include "levels/menu/header.h"
 #include "levels/intro/header.h"
@@ -345,5 +346,10 @@ const LevelScript script_func_global_18[] = {
     LOAD_MODEL_FROM_GEO(MODEL_MR_I,                    mr_i_geo),
     LOAD_MODEL_FROM_GEO(MODEL_DORRIE,                  dorrie_geo),
     LOAD_MODEL_FROM_GEO(MODEL_SNUFIT,                  snufit_geo),
+    RETURN(),
+};
+
+const LevelScript script_func_global_mill[] = {
+    LOAD_MODEL_FROM_GEO(MODEL_DYN_TEXT, letter_geo),
     RETURN(),
 };

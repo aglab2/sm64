@@ -33,6 +33,7 @@
 #include "actors/group15.h"
 #include "actors/group16.h"
 #include "actors/group17.h"
+#include "actors/group_mill.h"
 #include "levels/bbh/header.h"
 #include "levels/castle_inside/header.h"
 #include "levels/hmc/header.h"
@@ -6068,6 +6069,16 @@ const BehaviorScript bhvIntroScene[] = {
     OR_INT(oFlags, OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
     BEGIN_LOOP(),
         CALL_NATIVE(bhv_intro_scene_loop),
+    END_LOOP(),
+};
+
+extern void mill_letter_Init();
+extern void mill_letter_Step();
+const BehaviorScript bhvMillLetter[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    CALL_NATIVE(mill_letter_Init),
+    BEGIN_LOOP(),
+        CALL_NATIVE(mill_letter_Step),
     END_LOOP(),
 };
 

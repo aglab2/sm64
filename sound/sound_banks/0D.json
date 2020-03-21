@@ -4,8 +4,8 @@
     "envelopes": {
         "envelope0": [
             [2, 32700],
-            [130, 4954],
-            [523, 0],
+            [1, 32700],
+            [32700, 29430],
             "hang"
         ],
         "envelope1": [
@@ -71,38 +71,34 @@
     },
     "instruments": {
         "inst0": {
-            "release_rate": 100,
-            "normal_range_lo": 41,
-            "envelope": "envelope0",
-            "sound_lo": "00",
-            "sound": "01"
-        },
-        "inst1": {
-            "release_rate": 100,
-            "normal_range_lo": 41,
-            "envelope": "envelope1",
-            "sound_lo": "00",
-            "sound": "01"
-        },
-        "inst2": {
-            "release_rate": 180,
-            "envelope": "envelope2",
-            "sound": "02"
-        },
-        "inst3": {
-            "release_rate": 208,
-            "envelope": "envelope3",
-            "sound": "02"
-        },
-        "inst4": {
             "release_rate": 76,
             "envelope": "envelope4",
             "sound": "03"
         },
-        "inst5": {
+        "inst1": {
             "release_rate": 53,
             "envelope": "envelope5",
             "sound": "04"
+        },
+        "inst2": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "4_r"
+        },
+        "inst3": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "4_l"
+        },
+        "inst4": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "3_r"
+        },
+        "inst5": {
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "3_l"
         },
         "inst6": {
             "release_rate": 208,

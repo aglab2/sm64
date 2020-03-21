@@ -89,58 +89,34 @@
     },
     "instruments": {
         "inst0": {
-            "release_rate": 19,
-            "normal_range_lo": 29,
-            "normal_range_hi": 63,
+            "release_rate": 208,
             "envelope": "envelope0",
-            "sound_lo": "3B",
-            "sound": "3C",
-            "sound_hi": "3D"
+            "sound": "0_r"
         },
         "inst1": {
-            "release_rate": 24,
-            "normal_range_lo": 29,
-            "normal_range_hi": 61,
-            "envelope": "envelope1",
-            "sound_lo": "3B",
-            "sound": "3C",
-            "sound_hi": "3D"
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "0_l"
         },
         "inst2": {
-            "release_rate": 38,
-            "normal_range_lo": 29,
-            "normal_range_hi": 61,
-            "envelope": "envelope2",
-            "sound_lo": "3B",
-            "sound": "3C",
-            "sound_hi": "3D"
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "1_r"
         },
         "inst3": {
-            "release_rate": 38,
-            "normal_range_lo": 29,
-            "normal_range_hi": 61,
-            "envelope": "envelope3",
-            "sound_lo": "3B",
-            "sound": "3C",
-            "sound_hi": "3D"
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "1_l"
         },
         "inst4": {
-            "release_rate": 38,
-            "normal_range_lo": 29,
-            "normal_range_hi": 61,
-            "envelope": "envelope4",
-            "sound_lo": "3B",
-            "sound": "3C",
-            "sound_hi": "3D"
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "2_r"
         },
         "inst5": {
-            "release_rate": 38,
-            "normal_range_lo": 29,
-            "normal_range_hi": 61,
-            "envelope": "envelope5",
-            "sound_lo": "3B",
-            "sound": "3C",
-            "sound_hi": "3D"
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "2_l"
         },
         "inst6": {
             "release_rate": 208,

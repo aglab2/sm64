@@ -4,8 +4,8 @@
     "envelopes": {
         "envelope0": [
             [2, 32700],
-            [187, 0],
-            [32700, 0],
+            [1, 32700],
+            [32700, 29430],
             "hang"
         ],
         "envelope1": [
@@ -29,23 +29,19 @@
     },
     "instruments": {
         "inst0": {
-            "release_rate": 100,
-            "normal_range_lo": 55,
-            "normal_range_hi": 56,
+            "release_rate": 208,
             "envelope": "envelope0",
-            "sound_lo": "2A",
-            "sound": "2B",
-            "sound_hi": "2C"
+            "sound": "audience-l"
         },
         "inst1": {
-            "release_rate": 10,
-            "envelope": "envelope1",
-            "sound": "22"
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "audience-r"
         },
         "inst2": {
-            "release_rate": 90,
-            "envelope": "envelope2",
-            "sound": "28"
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "await"
         },
         "inst3": {
             "release_rate": 10,

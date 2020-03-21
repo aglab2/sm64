@@ -28,6 +28,7 @@ ACTOR_GROUPS := \
     group15 \
     group16 \
     group17 \
+	group_mill \
     common0 \
     common1
 
@@ -64,6 +65,7 @@ LAKITU_DIRS      := lakitu_cameraman toad mips boo_castle
 PEACH_DIRS       := bird peach yoshi
 BOWSER_DIRS      := bowser_flame impact_ring yellow_sphere bowser bomb impact_smoke
 MARIO_DIRS       := mario bubble walk_smoke burn_smoke stomp_smoke water_wave sparkle water_splash white_particle_small sparkle_animation
+MILL_DIRS        := dollar
 
 # Actor Files
 AMP_CHUCKYA_FILES            := $(foreach dir,$(addprefix $(ACTOR_DIR)/,$(AMP_DIRS)),$(patsubst %.png,%.inc.c,$(wildcard $(dir)/*.png)))
@@ -86,6 +88,7 @@ PEACH_TOADSTOOL_FILES        := $(foreach dir,$(addprefix $(ACTOR_DIR)/,$(PEACH_
 SEA_CREATURES_FILES          := $(foreach dir,$(addprefix $(ACTOR_DIR)/,$(SEA_DIRS)),$(patsubst %.png,%.inc.c,$(wildcard $(dir)/*.png)))
 SKEETER_FISH_FILES           := $(foreach dir,$(addprefix $(ACTOR_DIR)/,$(SKEETER_DIRS)),$(patsubst %.png,%.inc.c,$(wildcard $(dir)/*.png)))
 SPINDRIFT_PENGUIN_FILES      := $(foreach dir,$(addprefix $(ACTOR_DIR)/,$(SPINDRIFT_DIRS)),$(patsubst %.png,%.inc.c,$(wildcard $(dir)/*.png)))
+MILL_FILES                   := $(foreach dir,$(addprefix $(ACTOR_DIR)/,$(MILL_DIRS)),$(patsubst %.png,%.inc.c,$(wildcard $(dir)/*.png)))
 
 # Actor dependencies
 $(BUILD_DIR)/actors/group0.o: $(addprefix $(BUILD_DIR)/,$(MARIO_WATER_FILES)) $(foreach dir,$(addprefix $(ACTOR_DIR)/,$(MARIO_DIRS)),$(wildcard $(dir)/*.c))
@@ -106,6 +109,7 @@ $(BUILD_DIR)/actors/group14.o: $(addprefix $(BUILD_DIR)/,$(KOOPA_LOG_FILES)) $(f
 $(BUILD_DIR)/actors/group15.o: $(addprefix $(BUILD_DIR)/,$(LAKITU_TOAD_FILES)) $(foreach dir,$(addprefix $(ACTOR_DIR)/,$(LAKITU_DIRS)),$(wildcard $(dir)/*.c))
 $(BUILD_DIR)/actors/group16.o: $(addprefix $(BUILD_DIR)/,$(CHILLYCHIEF_FILES)) $(foreach dir,$(addprefix $(ACTOR_DIR)/,$(CHILLYCHIEF_DIRS)),$(wildcard $(dir)/*.c))
 $(BUILD_DIR)/actors/group17.o: $(addprefix $(BUILD_DIR)/,$(MR_I_SWOOP_FILES)) $(foreach dir,$(addprefix $(ACTOR_DIR)/,$(MR_I_DIRS)),$(wildcard $(dir)/*.c))
+$(BUILD_DIR)/actors/group_mill.o: $(addprefix $(BUILD_DIR)/,$(MILL_FILES)) $(foreach dir,$(addprefix $(ACTOR_DIR)/,$(MILL_DIRS)),$(wildcard $(dir)/*.c))
 $(BUILD_DIR)/actors/common0.o: $(addprefix $(BUILD_DIR)/,$(AMP_CHUCKYA_FILES)) $(foreach dir,$(addprefix $(ACTOR_DIR)/,$(AMP_DIRS)),$(wildcard $(dir)/*.c))
 $(BUILD_DIR)/actors/common1.o: $(addprefix $(BUILD_DIR)/,$(COINS_PIPE_FILES)) $(foreach dir,$(addprefix $(ACTOR_DIR)/,$(COINS_DIRS)),$(wildcard $(dir)/*.c))
 
@@ -128,6 +132,7 @@ $(BUILD_DIR)/actors/group14.elf: SEGMENT_ADDRESS := 0x06000000
 $(BUILD_DIR)/actors/group15.elf: SEGMENT_ADDRESS := 0x06000000
 $(BUILD_DIR)/actors/group16.elf: SEGMENT_ADDRESS := 0x06000000
 $(BUILD_DIR)/actors/group17.elf: SEGMENT_ADDRESS := 0x06000000
+$(BUILD_DIR)/actors/group_mill.elf: SEGMENT_ADDRESS := 0x06000000
 $(BUILD_DIR)/actors/common0.elf: SEGMENT_ADDRESS := 0x08000000
 $(BUILD_DIR)/actors/common1.elf: SEGMENT_ADDRESS := 0x03000000
 

@@ -3,7 +3,7 @@
     "sample_bank": "instruments",
     "envelopes": {
         "envelope0": [
-            [6, 32700],
+            [2, 32700],
             [1, 32700],
             [32700, 29430],
             "hang"
@@ -47,43 +47,29 @@
     },
     "instruments": {
         "inst0": {
-            "release_rate": 15,
-            "normal_range_lo": 27,
-            "normal_range_hi": 46,
+            "release_rate": 208,
             "envelope": "envelope0",
-            "sound_lo": "23",
-            "sound": "24",
-            "sound_hi": "25"
+            "sound": "epicwin"
         },
         "inst1": {
-            "release_rate": 15,
-            "normal_range_lo": 27,
-            "normal_range_hi": 46,
-            "envelope": "envelope1",
-            "sound_lo": "23",
-            "sound": "24",
-            "sound_hi": "25"
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "final"
         },
         "inst2": {
-            "release_rate": 15,
-            "normal_range_lo": 27,
-            "normal_range_hi": 46,
-            "envelope": "envelope2",
-            "sound_lo": "23",
-            "sound": "24",
-            "sound_hi": "25"
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "letsplay"
         },
         "inst3": {
-            "release_rate": 43,
-            "normal_range_hi": 47,
-            "envelope": "envelope3",
-            "sound": "46",
-            "sound_hi": "47"
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "lose"
         },
         "inst4": {
-            "release_rate": 119,
-            "envelope": "envelope4",
-            "sound": "2D"
+            "release_rate": 208,
+            "envelope": "envelope0",
+            "sound": "win"
         },
         "inst5": {
             "release_rate": 10,

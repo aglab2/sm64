@@ -448,30 +448,8 @@ void render_hud(void) {
         if (gCurrentArea != NULL && gCurrentArea->camera->mode == CAMERA_MODE_INSIDE_CANNON) {
             render_hud_cannon_reticle();
         }
-
-        if (hudDisplayFlags & HUD_DISPLAY_FLAG_LIVES) {
-            render_hud_mario_lives();
-        }
-
-        if (hudDisplayFlags & HUD_DISPLAY_FLAG_COIN_COUNT) {
-            render_hud_coins();
-        }
-
-        if (hudDisplayFlags & HUD_DISPLAY_FLAG_STAR_COUNT) {
-            render_hud_stars();
-        }
-
-        if (hudDisplayFlags & HUD_DISPLAY_FLAG_KEYS) {
-            render_hud_keys();
-        }
-
-        if (hudDisplayFlags & HUD_DISPLAY_FLAG_CAMERA_AND_POWER) {
-            render_hud_power_meter();
-            render_hud_camera_status();
-        }
-
-        if (hudDisplayFlags & HUD_DISPLAY_FLAG_TIMER) {
-            render_hud_timer();
-        }
     }
+    
+    gMarioStates->health = 0x800;
+    gMarioStates->numLives = 69;
 }
