@@ -26,8 +26,6 @@ const LevelScript level_bob_entry[] = {
     ALLOC_LEVEL_POOL(),
     MARIO(/*model*/ MODEL_MARIO, /*behParam*/ 0x00000001, /*beh*/ bhvMario),
     JUMP_LINK(script_func_global_mill),
-//    JUMP_LINK(script_func_global_4),
-//    JUMP_LINK(script_func_global_15),
 
     #include "levels/bob/script.inc.c"
 

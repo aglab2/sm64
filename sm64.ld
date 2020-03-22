@@ -372,11 +372,26 @@ SECTIONS
       BUILD_DIR/lib/rsp.o(.text);
 #endif
 
+      BUILD_DIR/src/cpp/triplet.o(.text*);
+
+      BUILD_DIR/src/mill/color_pads.o(.text*);
       BUILD_DIR/src/mill/colors.o(.text*);
+      BUILD_DIR/src/mill/death_room.o(.text*);
       BUILD_DIR/src/mill/dynamic_letters.o(.text*);
+      BUILD_DIR/src/mill/fountain.o(.text*);
+      BUILD_DIR/src/mill/global.o(.text*);
       BUILD_DIR/src/mill/gfx_table.o(.text*);
+      BUILD_DIR/src/mill/lights_ctl.o(.text*);
+      BUILD_DIR/src/mill/memes.o(.text*);
+      BUILD_DIR/src/mill/mill_ctl.o(.text*);
+      BUILD_DIR/src/mill/music.o(.text*);
+      BUILD_DIR/src/mill/numbers_input.o(.text*);
+      BUILD_DIR/src/mill/numbers_writer.o(.text*);
       BUILD_DIR/src/mill/rainbow_colors.o(.text*);
+      BUILD_DIR/src/mill/scores.o(.text*);
       BUILD_DIR/src/mill/string_fit.o(.text*);
+      BUILD_DIR/src/mill/warp.o(.text*);
+      BUILD_DIR/src/mill/world.o(.text*);
 
       /* data */
       BUILD_DIR/src/game/crash_screen.o(.data*);
@@ -476,12 +491,26 @@ SECTIONS
       BUILD_DIR/libultra.a:*.o(.data*);
 #endif
 
-      BUILD_DIR/src/mill/colors.o(.data*);
-      BUILD_DIR/src/mill/dynamic_letters.o(.data*);
-      BUILD_DIR/src/mill/gfx_table.o(.data*);
-      BUILD_DIR/src/mill/rainbow_colors.o(.data*);
-      BUILD_DIR/src/mill/string_fit.o(.data*);
+      BUILD_DIR/src/cpp/triplet.o(.data*);
 
+      BUILD_DIR/src/mill/color_pads.o(.data*);
+      BUILD_DIR/src/mill/colors.o(.data*);
+      BUILD_DIR/src/mill/death_room.o(.data*);
+      BUILD_DIR/src/mill/dynamic_letters.o(.data*);
+      BUILD_DIR/src/mill/fountain.o(.data*);
+      BUILD_DIR/src/mill/global.o(.data*);
+      BUILD_DIR/src/mill/gfx_table.o(.data*);
+      BUILD_DIR/src/mill/lights_ctl.o(.data*);
+      BUILD_DIR/src/mill/memes.o(.data*);
+      BUILD_DIR/src/mill/mill_ctl.o(.data*);
+      BUILD_DIR/src/mill/music.o(.data*);
+      BUILD_DIR/src/mill/numbers_input.o(.data*);
+      BUILD_DIR/src/mill/numbers_writer.o(.data*);
+      BUILD_DIR/src/mill/rainbow_colors.o(.data*);
+      BUILD_DIR/src/mill/scores.o(.data*);
+      BUILD_DIR/src/mill/string_fit.o(.data*);
+      BUILD_DIR/src/mill/warp.o(.data*);
+      BUILD_DIR/src/mill/world.o(.data*);
 
       /* rodata */
       BUILD_DIR/src/game/crash_screen.o(.rodata*);
@@ -576,11 +605,27 @@ SECTIONS
 #endif
       BUILD_DIR/lib/rsp.o(.rodata*);
 	  
+      BUILD_DIR/src/cpp/triplet.o(.rodata*);
+
+      BUILD_DIR/src/mill/color_pads.o(.rodata*);
       BUILD_DIR/src/mill/colors.o(.rodata*);
+      BUILD_DIR/src/mill/death_room.o(.rodata*);
       BUILD_DIR/src/mill/dynamic_letters.o(.rodata*);
+      BUILD_DIR/src/mill/fountain.o(.rodata*);
+      BUILD_DIR/src/mill/global.o(.rodata*);
       BUILD_DIR/src/mill/gfx_table.o(.rodata*);
+      BUILD_DIR/src/mill/lights_ctl.o(.rodata*);
+      BUILD_DIR/src/mill/memes.o(.rodata*);
+      BUILD_DIR/src/mill/mill_ctl.o(.rodata*);
+      BUILD_DIR/src/mill/music.o(.rodata*);
+      BUILD_DIR/src/mill/numbers_input.o(.rodata*);
+      BUILD_DIR/src/mill/numbers_writer.o(.rodata*);
       BUILD_DIR/src/mill/rainbow_colors.o(.rodata*);
+      BUILD_DIR/src/mill/scores.o(.rodata*);
       BUILD_DIR/src/mill/string_fit.o(.rodata*);
+      BUILD_DIR/src/mill/warp.o(.rodata*);
+      BUILD_DIR/src/mill/world.o(.rodata*);
+
    }
    END_SEG(main)
    BEGIN_NOLOAD(main)
@@ -672,11 +717,28 @@ SECTIONS
       BUILD_DIR/libultra.a:*.o(.bss*);
 #endif
 
+      BUILD_DIR/src/cpp/triplet.o(.bss*);
+
+      BUILD_DIR/src/mill/color_pads.o(.bss*);
       BUILD_DIR/src/mill/colors.o(.bss*);
+      BUILD_DIR/src/mill/death_room.o(.bss*);
       BUILD_DIR/src/mill/dynamic_letters.o(.bss*);
+      BUILD_DIR/src/mill/fountain.o(.bss*);
+      BUILD_DIR/src/mill/global.o(.bss*);
       BUILD_DIR/src/mill/gfx_table.o(.bss*);
+      BUILD_DIR/src/mill/lights_ctl.o(.bss*);
+      BUILD_DIR/src/mill/memes.o(.bss*);
+      BUILD_DIR/src/mill/mill_ctl.o(.bss*);
+      BUILD_DIR/src/mill/music.o(.bss*);
+      BUILD_DIR/src/mill/numbers_input.o(.bss*);
+      BUILD_DIR/src/mill/numbers_writer.o(.bss*);
       BUILD_DIR/src/mill/rainbow_colors.o(.bss*);
+      BUILD_DIR/src/mill/scores.o(.bss*);
       BUILD_DIR/src/mill/string_fit.o(.bss*);
+      BUILD_DIR/src/mill/warp.o(.bss*);
+      BUILD_DIR/src/mill/world.o(.bss*);
+
+      . = ALIGN(0x8);
    }
    END_NOLOAD(main)
    _mainSegmentNoloadSizeLo = SIZEOF (.main.noload) & 0xffff;

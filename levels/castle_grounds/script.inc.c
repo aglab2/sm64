@@ -1,0 +1,11 @@
+	AREA(1, castle_grounds_area_1_level),
+		WARP_NODE(0x0A, LEVEL_BOB, 0x01, 0x0A, WARP_NO_CHECKPOINT),
+		WARP_NODE(0x01, LEVEL_BOB, 0x01, 0x0A, WARP_NO_CHECKPOINT),
+		OBJECT(MODEL_THI_WARP_PIPE, -1, -36, 365, 0, 0, 0, 0x00010000, bhvWarpPipe),
+		OBJECT_WITH_ACTS(MODEL_NONE, -147, 174, 310, -90, 0, 0, 0x000a0000, bhvWarps74, ACT_1 | ACT_2 | ACT_3 | ACT_4 | ACT_5),
+		TERRAIN(castle_grounds_area_1_collision),
+		MACRO_OBJECTS(castle_grounds_area_1_Area1_macro_objs),
+		SET_BACKGROUND_MUSIC(0x00, 1),
+		TERRAIN_TYPE(TERRAIN_GRASS),
+	END_AREA(),
+

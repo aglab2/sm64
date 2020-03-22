@@ -9,14 +9,11 @@
 
 extern "C" const char * strchr ( const char * str, int character );
 
-#define DYNLET_TEXT ((char*) OBJECT_FIELD_S32(0x1b))
-#define TEXT_COLOR  oBehParams2ndByte
-
-const char text[] = "$";
+const char text[] = "'$";
 
 void DynamicLetters::Init()
 { 
-    OBJECT_FIELD_S32(0x1b) = (s32) text;
+//    OBJECT_FIELD_S32(0x1b) = (s32) text;
 }
 
 void DynamicLetters::Step()
@@ -108,3 +105,7 @@ Gfx* DynamicLetters::Draw(u32 sp50, struct GraphNode* node, u32 sp58)
 
     return displayList;
 }
+
+PROXY_OBJECT(mill, DynamicLetters, Init);
+PROXY_OBJECT(mill, DynamicLetters, Step);
+PROXY_DRAW(mill, DynamicLetters, Draw);

@@ -5,4 +5,5 @@
 
 #include "make_const_nonconst.h"
 
+#include "apostrophe/model.inc.c"
 #include "dollar/model.inc.c"

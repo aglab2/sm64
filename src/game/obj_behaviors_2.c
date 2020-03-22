@@ -60,7 +60,6 @@ extern u8 rr_seg7_trajectory_0702EEE0[];
 extern u8 bitdw_seg7_collision_0700F70C[];
 extern u8 bits_seg7_collision_0701ADD8[];
 extern u8 bits_seg7_collision_0701AE5C[];
-extern u8 bob_seg7_collision_bridge[];
 extern u8 bitfs_seg7_collision_07015928[];
 extern u8 rr_seg7_collision_07029750[];
 extern u8 rr_seg7_collision_07029858[];

@@ -5197,17 +5197,6 @@ const BehaviorScript bhvWoodenPost[] = {
     END_LOOP(),
 };
 
-const BehaviorScript bhvChainChompGate[] = {
-    BEGIN(OBJ_LIST_SURFACE),
-    LOAD_COLLISION_DATA(bob_seg7_collision_chain_chomp_gate),
-    OR_INT(oFlags, (OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
-    CALL_NATIVE(bhv_chain_chomp_gate_init),
-    BEGIN_LOOP(),
-        CALL_NATIVE(bhv_chain_chomp_gate_update),
-        CALL_NATIVE(load_object_collision_model),
-    END_LOOP(),
-};
-
 const BehaviorScript bhvWigglerHead[] = {
     BEGIN(OBJ_LIST_GENACTOR),
     OR_INT(oFlags, (OBJ_FLAG_COMPUTE_ANGLE_TO_MARIO | OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
@@ -6072,14 +6061,65 @@ const BehaviorScript bhvIntroScene[] = {
     END_LOOP(),
 };
 
-extern void mill_letter_Init();
-extern void mill_letter_Step();
+#include "cpp/bind.h"
+BIND_PROXY(mill, DynamicLetters, Init);
+BIND_PROXY(mill, DynamicLetters, Step);
 const BehaviorScript bhvMillLetter[] = {
     BEGIN(OBJ_LIST_GENACTOR),
-    CALL_NATIVE(mill_letter_Init),
+	OR_INT(1, 1),
+    CALL_NATIVE(BINDED_FN(mill, DynamicLetters, Init)),
     BEGIN_LOOP(),
-        CALL_NATIVE(mill_letter_Step),
+        CALL_NATIVE(BINDED_FN(mill, DynamicLetters, Step)),
     END_LOOP(),
 };
 
+BIND_PROXY(mill, Fountain, Step);
+const BehaviorScript bhvMillFountain[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+    BEGIN_LOOP(),
+        CALL_NATIVE(BINDED_FN(mill, Fountain, Step)),
+    END_LOOP(),
+};
 
+BIND_PROXY(mill, FountainParticle, Step);
+const BehaviorScript bhvMillFountainParticle[] = {
+    BEGIN(OBJ_LIST_GENACTOR),
+	OR_INT(1, 1),
+    BEGIN_LOOP(),
+        CALL_NATIVE(BINDED_FN(mill, FountainParticle, Step)),
+    END_LOOP(),
+};
+
+BIND_PROXY(mill, Memes, Step);
+const BehaviorScript bhvMillMemes[] = {
+    BEGIN_LOOP(),
+        CALL_NATIVE(BINDED_FN(mill, Memes, Step)),
+    END_LOOP(),
+};
+
+BIND_PROXY(mill, MillCtl, Init);
+BIND_PROXY(mill, MillCtl, Step);
+const BehaviorScript bhvMillCtl[] = {
+    CALL_NATIVE(BINDED_FN(mill, MillCtl, Init)),
+    BEGIN_LOOP(),
+        CALL_NATIVE(BINDED_FN(mill, MillCtl, Step)),
+    END_LOOP(),
+};
+
+BIND_PROXY(mill, NumbersWriter, Init);
+BIND_PROXY(mill, NumbersWriter, Step);
+const BehaviorScript bhvMillNumbersWriter[] = {
+    CALL_NATIVE(BINDED_FN(mill, NumbersWriter, Init)),
+    BEGIN_LOOP(),
+        CALL_NATIVE(BINDED_FN(mill, NumbersWriter, Step)),
+    END_LOOP(),
+};
+
+BIND_PROXY(mill, DeathRoom, Init);
+BIND_PROXY(mill, DeathRoom, Step);
+const BehaviorScript bhvMillDeathRoom[] = {
+    CALL_NATIVE(BINDED_FN(mill, DeathRoom, Init)),
+    BEGIN_LOOP(),
+        CALL_NATIVE(BINDED_FN(mill, DeathRoom, Step)),
+    END_LOOP(),
+};

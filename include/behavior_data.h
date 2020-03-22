@@ -544,5 +544,11 @@ extern const BehaviorScript bhvIntroScene[];
 extern const BehaviorScript bhvUnusedFakeStar[];
 
 extern const BehaviorScript bhvMillLetter[];
+extern const BehaviorScript bhvMillFountain[];
+extern const BehaviorScript bhvMillFountainParticle[];
+extern const BehaviorScript bhvMillMemes[];
+extern const BehaviorScript bhvMillCtl[];
+extern const BehaviorScript bhvMillNumbersWriter[];
+extern const BehaviorScript bhvMillDeathRoom[];
 
 #endif /* _BEHAVIOR_DATA_H */

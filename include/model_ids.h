@@ -587,5 +587,8 @@
 
 // mill 
 #define MODEL_DYN_TEXT 0xf0
+#define MODEL_VEIL 0xf1
+#define MODEL_FOUNTAIN_PARTICLE 0xf2
+#define MODEL_AUDIENCE 0xf3
 
 #endif

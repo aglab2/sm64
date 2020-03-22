@@ -1,4 +1,4 @@
-const MacroObject bob_area_1_Area1_macro_objs[] = {
+const MacroObject bob_area_1_area1_macro_objs[] = {
 	MACRO_OBJECT_END(),
 };
 

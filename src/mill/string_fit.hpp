@@ -1,3 +1,5 @@
+#pragma once
+
 namespace StringFit
 {
     const float BoxWidth = 700;

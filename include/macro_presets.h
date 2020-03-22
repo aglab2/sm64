@@ -372,8 +372,6 @@ struct MacroPreset MacroObjectPresets[] = {
     {bhvYellowCoin, MODEL_YELLOW_COIN, 0},
     {bhvFerrisWheelAxle, MODEL_BITS_FERRIS_WHEEL_AXLE, 0}, // unused
     {bhvActivatedBackAndForthPlatform, MODEL_BITS_ARROW_PLATFORM, 0}, // unused
-    {bhvSeesawPlatform, MODEL_BITS_SEESAW_PLATFORM, 0}, // unused
-    {bhvSeesawPlatform, MODEL_BITS_TILTING_W_PLATFORM, 0}, // unused
     {bhvYellowCoin, MODEL_YELLOW_COIN, 0},
     {bhvYellowCoin, MODEL_YELLOW_COIN, 0},
     {bhvYellowCoin, MODEL_YELLOW_COIN, 0},
