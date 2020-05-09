@@ -3,7 +3,15 @@ extern "C"
 {
     #include "math.h"
 }
+#include "lights_ctl.hpp"
 #include "color_pads.hpp"
+
+Color sColors[] = {
+    { 0xa0, 0xff, 0xa0 },
+    { 0xff, 0xa0, 0xa0 },
+    { 0xa0, 0xa0, 0xff },
+    { 0xff, 0xff, 0xff },
+};
 
 namespace World
 {
@@ -17,8 +25,8 @@ namespace World
     void Wave(int world, int offset, float amount)
     {
         float fluct = sinf((float) Timer / amount);
-        int color = 0xE0 + fluct * 0x1F - offset * 0x20;
-        SetColorWorlds(world, color, color, color);
+        auto color = sColors[world] * (0xE0 + fluct * 0x1F - offset * 0x20);
+        SetColorWorlds(color.r, color.g, color.b);
     }
 
     static int GetFluct(int t)
@@ -38,14 +46,14 @@ namespace World
     void SlowTremble(int world, int offset, int localTimer)
     {
         int fluct = (localTimer / 30) % 2;
-        int color = 0xE0 + (fluct * 2 - 1) * 0x1F - offset * 0x20;
-        SetColorWorlds(world, color, color, color);
+        auto color = sColors[world] * ((224.f/256.f) + fluct * (31.f/256.f) - offset * (32.f/256.f));
+        SetColorWorlds(color.r, color.g, color.b);
     }
 
     void Tremble(int world, int offset)
     {
         int fluct = GetFluct(Timer % 8);
-        int color = 0xE0 + fluct * 0xF - offset * 0x20;
-        SetColorWorlds(world, color, color, color);
+        auto color = sColors[world] * ((224.f/256.f) + fluct * (31.f/256.f) - offset * (32.f/256.f));
+        SetColorWorlds(color.r, color.g, color.b);
     }
 }

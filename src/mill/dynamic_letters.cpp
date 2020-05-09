@@ -9,11 +9,11 @@
 
 extern "C" const char * strchr ( const char * str, int character );
 
-const char text[] = "'$";
+const char text[] = "'$@";
 
 void DynamicLetters::Init()
-{ 
-//    OBJECT_FIELD_S32(0x1b) = (s32) text;
+{
+    OBJECT_FIELD_S32(0x1b) = (s32) text;
 }
 
 void DynamicLetters::Step()

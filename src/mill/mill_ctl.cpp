@@ -44,7 +44,6 @@ struct QuestionInfo
 };
 #pragma pack(pop)
 
-#define QUESTION_NUMBER oBehParams2ndByte
 #define COUNTDOWN_X     OBJECT_FIELD_S32(0x1b)
 #define COUNTDOWN_Y     OBJECT_FIELD_S32(0x1c)
 #define SONG_ID  OBJECT_FIELD_S32(0x1d)
@@ -58,7 +57,7 @@ struct QuestionInfo
 
 #define QUESTION_INFOS_ROM 0x3ff0000
 #define QUESTION_INFOS ((struct QuestionInfo*)(0x807f0000))
-#define QUESTION_INFO (&QUESTION_INFOS[QUESTION_NUMBER - 1])
+#define QUESTION_INFO (&QUESTION_INFOS[Question - 1])
 #define QUESTION_CORR (QUESTION_INFO->correctAnswer - 1)
 
 extern "C" void play_sequence(u8 player, u8 seqId, u16 fadeTimer);
@@ -149,8 +148,8 @@ void MillCtl::SetGamingMusic()
     }
     else
     {
-        track = Music::GetGameMusic(GetWorld(QUESTION_NUMBER), 
-                                    GetLevel(QUESTION_NUMBER));
+        track = Music::GetGameMusic(GetWorld(Question), 
+                                    GetLevel(Question));
     }
     SetMusic(track);
 }
@@ -169,7 +168,7 @@ void MillCtl::FixMusic()
     }
     if (Music::MUSIC_P2 <= SONG_ID  && SONG_ID <= Music::MUSIC_P4_END)
     {
-        if (SONG_LEN > Culprits[GetLevel(QUESTION_NUMBER)])
+        if (SONG_LEN > Culprits[GetLevel(Question)])
             SetMusic(SONG_ID);
     }
 
@@ -178,7 +177,7 @@ void MillCtl::FixMusic()
 
 void MillCtl::SetWinMusic()
 {
-    int track = Music::GetWinMusic(GetLevel(QUESTION_NUMBER));
+    int track = Music::GetWinMusic(GetLevel(Question));
     SetMusic(track);
 }
 
@@ -187,9 +186,9 @@ void MillCtl::PrintHint(const char* msg, int offset)
     print_text_centered(160, 20 + offset, msg);
 }
 
-void MillCtl::Init()
+void MillCtl::ResetWorld()
 {
-    Question = QUESTION_NUMBER;
+    Question++;
 
     SetCamera();
     for (int i = 0; i <= 3; i++)
@@ -201,7 +200,7 @@ void MillCtl::Init()
         fPos(CHILDREN[i]) = CoatsPos[i];
     }
 
-    QuestionInfo* info = &QUESTION_INFOS[QUESTION_NUMBER - 1];
+    QuestionInfo* info = &QUESTION_INFOS[Question - 1];
 
     {
         float scale;
@@ -216,7 +215,7 @@ void MillCtl::Init()
 
         auto obj = spawn_object(this, MODEL_DYN_TEXT, bhvMillLetter);
         F_DYNLET_TEXT(obj) = (int) info->question;
-        F_TEXT_COLOR(obj) = GetWorld(QUESTION_NUMBER);
+        F_TEXT_COLOR(obj) = GetWorld(Question);
         fPos(obj) = QuestionPos;
         obj_scale(obj, scale);
     }
@@ -234,7 +233,7 @@ void MillCtl::Init()
 
         DYNAMIC_LETTERS[i] = spawn_object(this, MODEL_DYN_TEXT, bhvMillLetter);
         F_DYNLET_TEXT(DYNAMIC_LETTERS[i]) =  (int) ai->txt;
-        F_TEXT_COLOR(DYNAMIC_LETTERS[i]) = GetWorld(QUESTION_NUMBER);
+        F_TEXT_COLOR(DYNAMIC_LETTERS[i]) = GetWorld(Question);
         fPos(DYNAMIC_LETTERS[i]) = LettersPos[i];
         obj_scale(DYNAMIC_LETTERS[i], scale);
     }
@@ -243,7 +242,7 @@ void MillCtl::Init()
 void MillCtl::Prepare()
 {
     FreezeMario();
-    if (QUESTION_NUMBER < 6)
+    if (Question < 6)
     {
         SetGamingMusic();
         for (int i = 0; i < size(CoatsPos); i++)
@@ -328,9 +327,9 @@ void MillCtl::Picking()
             {
                 oPickedAnswer = i;
                 SetColorAnswer(oPickedAnswer, 0xFF, 0x7F, 0x00);
-                if (QUESTION_NUMBER >= 5)
+                if (Question >= 5)
                 {
-                    int track = Music::GetFinalMusic(GetLevel(QUESTION_NUMBER));
+                    int track = Music::GetFinalMusic(GetLevel(Question));
                     SetMusic(track);
                 }
 
@@ -362,7 +361,7 @@ void MillCtl::Final()
 {
     FreezeMario();
     PickedAngle(oPickedAnswer);
-    if (QUESTION_NUMBER > 5)
+    if (Question > 5)
     {
         PrintHint("R to show correct");
         if (!(gPlayer1Controller->buttonPressed & R_TRIG))
@@ -384,7 +383,7 @@ void MillCtl::Final()
     else
     {
         F_TEXT_COLOR(DYNAMIC_LETTERS[oPickedAnswer]) = COLOR_GREEN;
-        int track = Music::GetLoseMusic(GetWorld(QUESTION_NUMBER), GetLevel(QUESTION_NUMBER));
+        int track = Music::GetLoseMusic(GetWorld(Question), GetLevel(Question));
         SetMusic(track);
     }
 
@@ -409,7 +408,7 @@ void MillCtl::Results()
         }
         else
         {
-            if (QUESTION_NUMBER == 15)
+            if (Question == 15)
                 State = MS_WIN;
 
             TriggerWarp(72);
@@ -539,6 +538,11 @@ void MillCtl::CallFriendCountDown()
     }
 }
 
+void MillCtl::Init()
+{
+    ResetWorld();
+}
+
 void MillCtl::Step()
 {
     RandomU16();
@@ -551,7 +555,7 @@ void MillCtl::Step()
             World::Flashy();
         case AUDIENCE_PICKING:
         case CALLFRIEND_CD:
-            World::SlowTremble(GetWorld(QUESTION_NUMBER), (QUESTION_NUMBER - 1) % 5, oTimer);
+            World::SlowTremble(GetWorld(Question), (Question - 1) % 5, oTimer);
         break;
 
         case WALKAWAY:
@@ -563,20 +567,20 @@ void MillCtl::Step()
             if (!wrongAnswer)
             {
                 World::Flashy();
-                int maxTime = GetLevel(QUESTION_NUMBER) == 4 ? 200 : 100;
+                int maxTime = GetLevel(Question) == 4 ? 200 : 100;
                 if (oTimer < maxTime)
                 {
-                    World::Tremble(GetWorld(QUESTION_NUMBER), (QUESTION_NUMBER - 1) % 5);
+                    World::Tremble(GetWorld(Question), (Question - 1) % 5);
                 }
                 else
                 {
-                    World::Wave(GetWorld(QUESTION_NUMBER), (QUESTION_NUMBER - 1) % 5, 20);
+                    World::Wave(GetWorld(Question), (Question - 1) % 5, 20);
                 }
             }
         }
         break;
         default:
-            World::Wave(GetWorld(QUESTION_NUMBER), (QUESTION_NUMBER - 1) % 5, 20);
+            World::Wave(GetWorld(Question), (Question - 1) % 5, 20);
         break;
     }
 

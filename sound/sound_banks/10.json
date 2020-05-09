@@ -49,12 +49,12 @@
         "inst0": {
             "release_rate": 208,
             "envelope": "envelope0",
-            "sound": "audience-l"
+            "sound": "timeout-l"
         },
         "inst1": {
             "release_rate": 10,
             "envelope": "envelope1",
-            "sound": "3E"
+            "sound": "timeout-r"
         },
         "inst2": {
             "release_rate": 208,

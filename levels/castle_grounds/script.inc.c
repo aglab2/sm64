@@ -2,6 +2,7 @@
 		WARP_NODE(0x0A, LEVEL_BOB, 0x01, 0x0A, WARP_NO_CHECKPOINT),
 		WARP_NODE(0x01, LEVEL_BOB, 0x01, 0x0A, WARP_NO_CHECKPOINT),
 		OBJECT(MODEL_THI_WARP_PIPE, -1, -36, 365, 0, 0, 0, 0x00010000, bhvWarpPipe),
+		OBJECT(MODEL_DYN_TEXT, -1, 562, 64, -90, 0, 0, 0x0, bhvMillLetter),
 		OBJECT_WITH_ACTS(MODEL_NONE, -147, 174, 310, -90, 0, 0, 0x000a0000, bhvWarps74, ACT_1 | ACT_2 | ACT_3 | ACT_4 | ACT_5),
 		TERRAIN(castle_grounds_area_1_collision),
 		MACRO_OBJECTS(castle_grounds_area_1_Area1_macro_objs),

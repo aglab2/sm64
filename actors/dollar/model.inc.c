@@ -1,11 +1,3 @@
-static const Lights1 dollar__18_f3d_lights = gdSPDefLights1(
-	0x7F, 0x7F, 0x7F,
-	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
-
-static const Lights1 dollar__17_f3d_lights = gdSPDefLights1(
-	0x7F, 0x7F, 0x7F,
-	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
-
 ALIGNED8 static const u8 dollar__18_rgba16[] = {
 	0x94, 0xA5, 
 };
@@ -26,7 +18,6 @@ const Gfx mat_dollar__18_f3d[] = {
 	gsDPPipeSync(),
 	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b, 1, 0, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0),
 	gsDPSetTileSize(0, 0, 0, 0, 0),
-	gsSPSetLights1(dollar__18_f3d_lights),
 	gsSPEndDisplayList(),
 };
 
@@ -43,7 +34,6 @@ const Gfx mat_dollar__17_f3d[] = {
 	gsDPPipeSync(),
 	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b, 1, 0, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 0, 0),
 	gsDPSetTileSize(0, 0, 0, 0, 0),
-	gsSPSetLights1(dollar__17_f3d_lights),
 	gsSPEndDisplayList(),
 };
 

@@ -44,6 +44,8 @@ private:
     void AudienceAfterPicking();
     void CallFriendCountDown();
 
+    void ResetWorld();
+
 public:
     void Init();
     void Step();

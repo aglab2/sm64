@@ -38,7 +38,7 @@ extern Gfx mat_bob_scroll[];
 
 static Lights1* cmdsAnswer[] = { &bob_answer1_lights, &bob_answer2_lights, &bob_answer3_lights, &bob_answer4_lights };
 static Lights1* cmdsLifelines[] = { &bob__5050_lights, &bob_audience_lights, &bob_phone_lights };
-static Lights1* cmdsWorlds[] = { &bob__1_f3d_lights, nullptr, nullptr, nullptr };
+static auto cmdsWorlds = &bob__1_f3d_lights;
 static auto cmdsFlashy = TO_SETTILESIZE(&bob_scroll_lights);
 
 void SetColorAnswer(int n, unsigned char r, unsigned char g, unsigned char b)
@@ -53,9 +53,9 @@ void SetColorLifelines(int n, unsigned char r, unsigned char g, unsigned char b)
     return LightsCtl::Set({r, g, b}, *val);
 }
 
-void SetColorWorlds(int n, unsigned char r, unsigned char g, unsigned char b)
+void SetColorWorlds(unsigned char r, unsigned char g, unsigned char b)
 {
-    auto val = toVirtual(cmdsWorlds[n]);
+    auto val = toVirtual(cmdsWorlds);
     return LightsCtl::Set({r, g, b}, *val);
 }
 

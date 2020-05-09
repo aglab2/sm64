@@ -26,35 +26,35 @@ const Lights1 bob_scroll_lights = gdSPDefLights1(
 	0x7F, 0x7F, 0x7F,
 	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
 
-const Lights1 bob__15_f3d_lights = gdSPDefLights1(
+static const Lights1 bob__15_f3d_lights = gdSPDefLights1(
 	0x7F, 0x7F, 0x7F,
 	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
 
-const Lights1 bob__14_f3d_lights = gdSPDefLights1(
+static const Lights1 bob__14_f3d_lights = gdSPDefLights1(
 	0x7F, 0x7F, 0x7F,
 	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
 
-const Lights1 bob__16_f3d_lights = gdSPDefLights1(
+static const Lights1 bob__16_f3d_lights = gdSPDefLights1(
 	0x7F, 0x7F, 0x7F,
 	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
 
-const Lights1 bob__9_f3d_lights = gdSPDefLights1(
+static const Lights1 bob__9_f3d_lights = gdSPDefLights1(
 	0x7F, 0x7F, 0x7F,
 	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
 
-const Lights1 bob__8_f3d_lights = gdSPDefLights1(
+static const Lights1 bob__8_f3d_lights = gdSPDefLights1(
 	0x7F, 0x7F, 0x7F,
 	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
 
-const Lights1 bob__4_f3d_lights = gdSPDefLights1(
+static const Lights1 bob__4_f3d_lights = gdSPDefLights1(
 	0x7F, 0x7F, 0x7F,
 	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
 
-const Lights1 bob__5_f3d_lights = gdSPDefLights1(
+static const Lights1 bob__5_f3d_lights = gdSPDefLights1(
 	0x7F, 0x7F, 0x7F,
 	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
 
-const Lights1 bob__10_f3d_lights = gdSPDefLights1(
+static const Lights1 bob__10_f3d_lights = gdSPDefLights1(
 	0x7F, 0x7F, 0x7F,
 	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
 
@@ -63,14 +63,6 @@ const Lights1 bob_phone_lights = gdSPDefLights1(
 	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
 
 const Lights1 bob__1_f3d_lights = gdSPDefLights1(
-	0x7F, 0x7F, 0x7F,
-	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
-
-const Lights1 bob__2_f3d_lights = gdSPDefLights1(
-	0x7F, 0x7F, 0x7F,
-	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
-
-const Lights1 bob__6_f3d_lights = gdSPDefLights1(
 	0x7F, 0x7F, 0x7F,
 	0xFE, 0xFE, 0xFE, 0x28, 0x28, 0x28);
 
@@ -375,6 +367,7 @@ const Gfx mat_bob__2_f3d[] = {
 	gsDPPipeSync(),
 	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b, 8, 0, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 8, 0, G_TX_WRAP | G_TX_NOMIRROR, 8, 0),
 	gsDPSetTileSize(0, 0, 0, 1020, 1020),
+	gsSPSetLights1(bob__1_f3d_lights),
 	gsSPEndDisplayList(),
 };
 
@@ -391,6 +384,7 @@ const Gfx mat_bob__6_f3d[] = {
 	gsDPPipeSync(),
 	gsDPSetTile(G_IM_FMT_RGBA, G_IM_SIZ_16b, 8, 0, 0, 0, G_TX_WRAP | G_TX_NOMIRROR, 7, 0, G_TX_WRAP | G_TX_NOMIRROR, 7, 0),
 	gsDPSetTileSize(0, 0, 0, 508, 508),
+	gsSPSetLights1(bob__1_f3d_lights),
 	gsSPEndDisplayList(),
 };
 
